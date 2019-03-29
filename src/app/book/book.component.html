@@ -1,0 +1,36 @@
+
+<div class="container">
+  <div class="row mt-3">
+    <table class="table table-bordered table-striped">
+      <thead class="thead-light text-center">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Danh sách đọc</th>
+        <th scope="col">Trạng thái</th>
+
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let book of bookList; ">
+        <td>{{book.id}}</td>
+        <td>{{book.name}}</td>
+        <td>{{book.read}}</td>
+        <td type="button" class="btn btn-primary">Đã Đọc</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+<div class="container">
+  <form [formGroup]="bookForm" (ngSubmit)="create()">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" id="name" class="form-control" placeholder="Enter Name"  [formControl]="inputControl" formControlName="name">
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="create()">Submit</button>
+  </form>
+</div>
+
+<a  class="nav-link" [routerLink]="['/trangchu']" >Về Trang Chủ </a>
